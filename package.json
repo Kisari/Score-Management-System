@@ -6,16 +6,23 @@
   "scripts": {
     "dev": "ts-node-dev --poll src/index.ts",
     "build": "rimraf ./dist && tsc",
-    "start": "npm run build && node dist/index.js"
+    "start": "npm run build && node dist/index.js",
+    "db:setup": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "csv-parser": "^3.0.0",
     "express": "^4.21.1",
-    "score-management-system": "file:"
+    "mysql2": "^3.11.5",
+    "score-management-system": "file:",
+    "sequelize": "^6.37.5",
+    "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.17",
     "@types/express": "^5.0.0",
     "rimraf": "^6.0.1",
     "ts-node-dev": "^2.0.0",
