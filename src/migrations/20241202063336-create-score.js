@@ -72,6 +72,8 @@ module.exports = {
     await queryInterface.addIndex('scores', ['dia_li']);
     await queryInterface.addIndex('scores', ['gdcd']);
     await queryInterface.addIndex('scores', ['ma_ngoai_ngu']);
+    // await queryInterface.addIndex('scores', ['toan', 'vat_li', 'hoa_hoc']);
+    
   },
 
   down: async (queryInterface, Sequelize) => {

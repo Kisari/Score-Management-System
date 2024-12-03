@@ -13,6 +13,7 @@ interface ScoreAttributes {
     diaLi?: number
     gdcd?: number
     maNgoaiNgu?: string
+    khoiAtotalScore?: number
 }
 
 export interface ScoreInput extends Optional<ScoreAttributes, 'sbd'> {}
@@ -29,6 +30,7 @@ export class Score extends Model<ScoreAttributes, ScoreInput> implements ScoreAt
     declare diaLi: number
     declare gdcd: number
     declare maNgoaiNgu: string
+    declare khoiAtotalScore: number
 
     declare readonly createdAt: Date
     declare readonly updatedAt: Date
@@ -91,7 +93,7 @@ Score.init({
         type: DataTypes.STRING,
         allowNull: true,
         field: 'ma_ngoai_ngu'
-    }
+    },
 }, {
     modelName: 'Score',
     tableName: 'scores',
