@@ -22,10 +22,10 @@ export const errorHandler = (
   res.status(statusCode).json({
     success: false,
     message,
+    stack: err.stack
   });
 };
 
-// Helper function to throw errors
 export const createError = (message: string, statusCode: number = 500): never => {
   throw new AppError(message, statusCode);
 };

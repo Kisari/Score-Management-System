@@ -12,3 +12,6 @@ DB_PASSWORD=
 DB_DRIVER=mysql
 DB_HOST=localhost
 DB_PORT=3306
+
+
+UI references: https://dribbble.com/shots/22429297-School-Management-Dashboard

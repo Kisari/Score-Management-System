@@ -1,0 +1,6 @@
+.sidebar li:hover, 
+.sidebar .options:hover {
+  background-color: var(--secondary-color) !important;
+  color: var(--primary-color) !important;
+  transition: all 0.3s ease;
+}
