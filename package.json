@@ -7,7 +7,7 @@
     "dev": "ts-node-dev --poll src/index.ts",
     "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/index.js",
-    "db:setup": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed"
+    "db:setup": "npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",

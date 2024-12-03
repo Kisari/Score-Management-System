@@ -1,11 +1,10 @@
 import { Request, Response } from 'express';
 import asyncHandler from 'express-async-handler';
 import { createError } from '../../middlewares/errorHandler';
-import { sequelizeConnection } from '../../config/database';
 import ResponseData from '../../payload/ResponseData';
 import Score from '../../models/score.model';
 
-interface getScoreBySbdOutputDTO {
+interface GetScoreBySbdOutputDTO {
   scoreData: Score;
 }
 
@@ -26,7 +25,7 @@ export const getScoreBySbd = asyncHandler(async (req: Request, res: Response) =>
   }
 
   // Format response
-  const response: ResponseData<getScoreBySbdOutputDTO> = {
+  const response: ResponseData<GetScoreBySbdOutputDTO> = {
     status: res.statusCode,
     data: {
       scoreData: scoreData,

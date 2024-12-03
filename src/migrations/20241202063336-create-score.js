@@ -60,6 +60,18 @@ module.exports = {
         defaultValue: Sequelize.NOW
       }
     });
+
+    //add index for all fields
+    await queryInterface.addIndex('scores', ['toan']);
+    await queryInterface.addIndex('scores', ['ngu_van']);
+    await queryInterface.addIndex('scores', ['ngoai_ngu']);
+    await queryInterface.addIndex('scores', ['vat_li']);
+    await queryInterface.addIndex('scores', ['hoa_hoc']);
+    await queryInterface.addIndex('scores', ['sinh_hoc']);
+    await queryInterface.addIndex('scores', ['lich_su']);
+    await queryInterface.addIndex('scores', ['dia_li']);
+    await queryInterface.addIndex('scores', ['gdcd']);
+    await queryInterface.addIndex('scores', ['ma_ngoai_ngu']);
   },
 
   down: async (queryInterface, Sequelize) => {

@@ -95,7 +95,7 @@ Score.init({
 }, {
     modelName: 'Score',
     tableName: 'scores',
-    sequelize: sequelizeConnection
+    sequelize: sequelizeConnection,
 })
 
 
