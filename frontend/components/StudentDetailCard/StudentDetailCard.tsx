@@ -72,7 +72,6 @@ const StudentDetailCard = (scoreData: ScoreTableData) => {
     <thead>
         <tr className="bg-gray-100 text-left">
             {Object.entries(scoreData.scoreData.data.scoreData)
-                .filter(([subject]) => subject !== 'sbd' && subject !== 'maNgoaiNgu')
                 .map(([subject]) => (
                     <th key={subject} className="px-6 py-3 text-sm font-semibold text-gray-700">
                         {subject.replace(/([A-Z])/g, ' $1')}
@@ -83,7 +82,6 @@ const StudentDetailCard = (scoreData: ScoreTableData) => {
     <tbody>
         <tr className="border-b">
             {Object.entries(scoreData.scoreData.data.scoreData)
-                .filter(([subject]) => subject !== 'sbd' && subject !== 'maNgoaiNgu')
                 .map(([subject, score]) => (
                     <td key={subject} className="px-6 py-4 text-sm text-gray-600">
                         {score !== null ? score : 'N/A'}

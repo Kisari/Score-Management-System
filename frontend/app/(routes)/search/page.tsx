@@ -10,14 +10,33 @@ import { errorMessageHandler } from "@/app/utils/errorHandler";
 
 export default function Search() {
     const [searchSbd, setSearchSbd] = useState<string>("");
-    const [studentScore, setStudentScore] = useState<GetScoreBySbdOutputDTO>();
     const [error, setError] = useState<string | null>(null);
+    const [selectedStudent, setSelectedStudent] = useState<GetScoreBySbdOutputDTO>();
+    const [studentScoreList, setStudentScoreList] = useState<GetScoreBySbdOutputDTO[]>([]);
 
+
+    //handle search feature
     const handleSearch = async () => {
         setError(null);
+
+        //set erro when the input is empty
+        if (searchSbd.length === 0) {
+            setError("SBD cannot be empty.");
+            return;
+        }
+
+        //check if the student data is already in the list
+        const studentData = studentScoreList.find((record) => record.data.scoreData.sbd === searchSbd);
+        if (studentData) {
+            setSelectedStudent(studentData);
+            return;
+        }
+
+        //fetch the student data
         try {
             const scoreData = await getScoreBySbd(searchSbd);
-            setStudentScore(scoreData);
+            setStudentScoreList([...studentScoreList, scoreData]);
+            setSelectedStudent(scoreData);
         } catch (err) {
             const message = errorMessageHandler(err);
             setError(message);
@@ -26,14 +45,12 @@ export default function Search() {
 
     return (
         <div className="flex h-screen flex-col lg:flex-row">
-            {/* Sidebar Section */}
             <Sidebar onTag={2}/>
             
             <div className="flex-1">
                 <Header />
                 <div className="p-4">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-                        {/* Search and Sidebar */}
                         <div className="bg-white p-4 rounded-lg shadow">
                             <div className="flex flex-row justify-between">
                                 <h2 className="text-lg font-semibold mb-4">Students</h2>
@@ -70,28 +87,27 @@ export default function Search() {
                                     🔍
                                 </button>
                             </div>
-
+                            <h2 className="text-lg font-semibold mb-4">History</h2>
                             <ul>
-                                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
-                                    Student 1
-                                </li>
-                                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
-                                    Student 2
-                                </li>
-                                <li className="p-2 rounded hover:bg-gray-100 cursor-pointer">
-                                    Student 3
-                                </li>
+                                {studentScoreList.length === 0 && 
+                                    <p className="mt-4">No lastest history search.</p>
+                                }
+
+                                {studentScoreList.map((record) => (
+                                    <li key={record.data.scoreData.sbd} className="p-2 rounded hover:bg-gray-100 cursor-pointer" onClick={() => setSelectedStudent(record)}>
+                                        {record.data.scoreData.sbd}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
 
-                        {/* Details Section */}
                         <div className="col-span-1 lg:col-span-2 bg-secondary-color p-6 rounded-lg shadow">
                             <h2 className="text-lg font-semibold">Details Score</h2>
                             {error && (
                                 <p className="text-red-500 mt-4">{error}</p>
                             )}
-                            {studentScore ? (
-                                <StudentDetailCard scoreData={studentScore}/>
+                            {selectedStudent ? (
+                                <StudentDetailCard scoreData={selectedStudent}/>
                             ) : (
                                 <p className="mt-4">Search for a student to view their details.</p>
                             )}
