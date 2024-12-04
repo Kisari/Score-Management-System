@@ -18,8 +18,11 @@
         "name": "next"
       }
     ],
+    "baseUrl": ".",
     "paths": {
-      "@/*": ["./*"]
+        "@/*": ["./*"],
+        "@/components/*": ["./components/*"],
+        "@/app/*": ["./app/*"],
     },
     "rootDir": "./"  // Set rootDir to the current directory of 'frontend'
   },

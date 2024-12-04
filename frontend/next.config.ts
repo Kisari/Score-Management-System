@@ -8,9 +8,9 @@ const nextConfig: NextConfig = {
   webpack(config) {
     config.resolve.alias = {
       ...config.resolve.alias,
-      "@": path.resolve(__dirname, "app"),  // Map '@' to the 'app' folder
-      "@/components": path.resolve(__dirname, "app/components"),  // Map '@/components' to 'app/components'
-      "@/app": path.resolve(__dirname, "app"),  // Map '@/app' to 'app'
+      "@": path.resolve(__dirname, "app"),
+      "@/components": path.resolve(__dirname, "components"), 
+      "@/app": path.resolve(__dirname, "app"),
     };
     return config;
   },
