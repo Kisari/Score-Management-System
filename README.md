@@ -1,6 +1,9 @@
 # Score-Management-System
 
 *Live Demo*: https://g-score.netlify.app/
+**Important**: The response may take up to 1 mins
+
+
 This is the instructions on how to set up the project locally
 
 ## Clone the project from source
