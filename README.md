@@ -23,10 +23,9 @@ npm i
 (windows)
 copy .env.sample .env
 ```
-Then modify the content of .env to fit with your SQL database configuration
-
+Then modify the content of **.env** to fit with your **SQL database configuration**
 Open the **src** folder and go to **config** -> **config.json**
-Adjusting the content of **development** to fit with your SQL database
+Adjusting the content of **development** to fit with your **SQL database configuration**
 
 ![image](https://github.com/user-attachments/assets/5f30f060-4cb7-4610-81ea-0dc98ae47e06)
 
