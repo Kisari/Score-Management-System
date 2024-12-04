@@ -4,8 +4,5 @@
   command = "npm run build"
   environment = { "NETLIFY_BUILD_CONTEXT" = "deploy" }
 
-[build.environment]
-  NODE_ENV = "development"
-
 [context.production.environment]
   NODE_ENV = "production"
