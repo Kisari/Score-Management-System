@@ -77,7 +77,6 @@ export default function ScoreStatistic({
                             <option value="lich_su">History</option>
                             <option value="dia_li">Geography</option>
                             <option value="gdcd">Civic Education</option>
-                            <option value="ma_ngoai_ngu">Foreign Language</option>
                         </select>
                     </div>
 
@@ -98,47 +97,47 @@ export default function ScoreStatistic({
                 </div>
 
                 <div className="overflow-x-auto shadow-md rounded-lg bg-secondary-color">
-                    <table className="min-w-full table-auto">
-                        <thead>
-                            <tr className="bg-gray-100 text-left">
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">SBD</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Toan</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngu Van</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngoai Ngu</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Vat Li</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Hoa Hoc</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Sinh Hoc</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Lich Su</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Dia Li</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">GDCD</th>
-                                <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ma Ngoai Ngu</th>
-                            </tr>
-                        </thead>
-                    </table>
+  <table className="min-w-full table-fixed">
+    <thead>
+      <tr className="bg-gray-100 text-left">
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700 w-[150px]">SBD</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Toan</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngu Van</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngoai Ngu</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Vat Li</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Hoa Hoc</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Sinh Hoc</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Lich Su</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Dia Li</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">GDCD</th>
+        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ma Ngoai Ngu</th>
+      </tr>
+    </thead>
+  </table>
 
-                    {/* Wrapper around tbody to apply scroll */}
-                    <div className="overflow-y-auto max-h-80">
-                        <table className="min-w-full table-auto">
-                            <tbody>
-                                {scoreData.map((score) => (
-                                    <tr key={score.sbd} className="border-b">
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.sbd}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.toan}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.nguVan}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.ngoaiNgu}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.vatLi}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.hoaHoc}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.sinhHoc}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.lichSu}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.diaLi}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.gdcd}</td>
-                                        <td className="px-6 py-4 text-sm text-gray-600">{score.maNgoaiNgu}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+  <div className="overflow-y-auto max-h-80">
+    <table className="min-w-full table-fixed">
+      <tbody>
+        {scoreData.map((score) => (
+          <tr key={score.sbd} className="border-b">
+            <td className="px-6 py-4 text-sm text-gray-600 w-[150px]">{score.sbd}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.toan}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.nguVan}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.ngoaiNgu}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.vatLi}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.hoaHoc}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.sinhHoc}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.lichSu}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.diaLi}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.gdcd}</td>
+            <td className="px-6 py-4 text-sm text-gray-600">{score.maNgoaiNgu}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</div>
+
             </div>
 
             {scoreData.length > 0 ? <div className="flex justify-end mt-4">
