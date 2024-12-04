@@ -79,6 +79,11 @@ export default function Search() {
                                     onChange={(e) => setSearchSbd(e.target.value)}
                                     placeholder="Search for students SBD"
                                     className="w-full p-3 border rounded-lg shadow focus:outline-none focus:ring-2 focus:ring-blue-500"
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                          handleSearch();
+                                        }
+                                      }}
                                 />
                                 <button
                                     onClick={handleSearch}

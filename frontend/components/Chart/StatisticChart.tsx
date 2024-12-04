@@ -1,38 +1,49 @@
 "use client";
 
-import { Line } from "react-chartjs-2";
-import { Chart as ChartJS, CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend } from "chart.js";
+import { Bar } from "react-chartjs-2";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
+import { useEffect, useState } from "react";
+import { getScoreByRangeStatistics } from "@/app/api/score";
+import { GetScoreByRangeStatisticsOutputDTO } from "@/app/dto/score/getScoreByRangeStatistics";
 
-//register plugins for generating chart
-ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Legend);
+// Register plugins for generating the chart
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-const Chart = () => {
+interface StatisticChartProps {
+    subject: string;
+}
 
-  //mock data set
+const StatisticChart = ({subject} : StatisticChartProps) => {
+
+    const [scoreStatistic, setScoreStatistics] = useState<GetScoreByRangeStatisticsOutputDTO>();
+
+    useEffect(() => {
+        async function fetchScoreStatistics() {
+            const scoreStatisticData = await getScoreByRangeStatistics({subject: subject});
+            setScoreStatistics(scoreStatisticData);
+        }
+
+        fetchScoreStatistics();
+    }, [subject]);
+
   const data = {
-    labels: ["Math", "Literature", "Chemistry", "Biology", "History", "Geography", "Civic Education", "Foreign Language", "Physical Education"],
+    labels: ["<4", "4-6", "6-8", ">8"],
     datasets: [
       {
-        label: "Class A",
-        data: [8, 7, 9, 7, 6, 8, 7, 9],
-        borderColor: "rgba(75, 192, 192, 1)",
+        label: subject,
+        data: scoreStatistic && Object.values(scoreStatistic.data).map(value => parseInt(value)),
         backgroundColor: "rgba(75, 192, 192, 0.2)",
-      },
-      {
-        label: "Class B",
-        data: [6, 8, 7, 6, 7, 6, 8, 7],
-        borderColor: "rgba(255, 99, 132, 1)",
-        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgba(75, 192, 192, 1)",
+        borderWidth: 1,
       },
     ],
   };
 
   return (
-    <div className="chart-container">
-      <h2 className="text-center text-2xl font-semibold">Student Score Management</h2>
-      <Line data={data} />
+    <div className="chart-container text-secondary-color">
+      <Bar data={data} />
     </div>
   );
 };
 
-export default Chart;
+export default StatisticChart;

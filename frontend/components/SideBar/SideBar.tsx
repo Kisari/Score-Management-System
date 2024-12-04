@@ -14,7 +14,7 @@ const Sidebar = ({ onTag }: { onTag: number }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="relative h-fit z-[40]">
       <div className="lg:hidden flex justify-between items-center p-4">
         <button onClick={toggleSidebar} className="text-primary-color">
           <svg

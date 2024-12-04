@@ -7,7 +7,7 @@ import {QueryTypes} from 'sequelize';
 
 // Valid subjects
 const validSubjects = [
-  'toan', 'ngu_van', 'hoa_hoc', 'sinh_hoc', 'lich_su', 'dia_li', 'gdcd', 'ma_ngoai_ngu'
+  'toan', 'ngu_van', 'hoa_hoc', 'sinh_hoc', 'lich_su', 'dia_li', 'gdcd', 'ma_ngoai_ngu', 'ngoai_ngu', 'vat_li'
 ];
 
 interface GetScoreByRangeStatisticsOutputDTO{

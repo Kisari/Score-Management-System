@@ -1,9 +1,8 @@
-"use client";
-
-import { GetScoreByRangeInputDTO } from "@/app/dto/score/getScoreByRange";
-import "./ScoreStatistic.css";
 import { useState } from "react";
+import { GetScoreByRangeInputDTO } from "@/app/dto/score/getScoreByRange";
 import { ScoreData } from "@/app/dto/score/getScoreByRange";
+import StatisticChart from "../Chart/StatisticChart";
+import "./ScoreStatistic.css";
 
 interface ScoreStatisticProps {
     query: GetScoreByRangeInputDTO;
@@ -53,10 +52,10 @@ export default function ScoreStatistic({
         <div className="bg-secondary-color p-6 rounded-lg shadow flex flex-col space-y-6">
             {/* Score Statistics Section */}
             <div className="flex-1">
-                <h2 className="text-lg font-semibold mb-4">Score Statistics</h2>
+                <h2 className="text-2xl text-center font-semibold mb-4">Student Score Statistics</h2>
 
-                <div className="mb-4 flex items-center space-x-4">
-                    <div>
+                <div className="mb-4 flex flex-wrap items-center space-x-4 space-y-4">
+                    <div className="flex-1 sm:w-auto">
                         <label
                             htmlFor="subject"
                             className="block text-sm font-medium text-primary-color text-center"
@@ -80,13 +79,13 @@ export default function ScoreStatistic({
                         </select>
                     </div>
 
-                    <div className="flex space-x-2 flex-1">
+                    <div className="flex space-x-2 flex-wrap w-full sm:w-auto">
                         {rangeList.map((button) => (
                             <button
                                 key={button.range}
-                                className={`flex-1 px-4 py-2 border-2 transition-all ease-in duration-75 rounded-md ${activeButton === button.range
-                                    ? "bg-primary-color text-white"
-                                    : "border-primary-color text-primary-color hover:bg-primary-color hover:text-white"
+                                className={`flex-1 sm:flex-none px-4 py-2 border-2 transition-all ease-in duration-75 rounded-md ${activeButton === button.range
+                                        ? "bg-primary-color text-white"
+                                        : "border-primary-color text-primary-color hover:bg-primary-color hover:text-white"
                                     }`}
                                 onClick={() => handleSetRange(button.range)}
                             >
@@ -96,73 +95,73 @@ export default function ScoreStatistic({
                     </div>
                 </div>
 
-                <div className="overflow-x-auto shadow-md rounded-lg bg-secondary-color">
-  <table className="min-w-full table-fixed">
-    <thead>
-      <tr className="bg-gray-100 text-left">
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700 w-[150px]">SBD</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Toan</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngu Van</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngoai Ngu</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Vat Li</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Hoa Hoc</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Sinh Hoc</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Lich Su</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Dia Li</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">GDCD</th>
-        <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ma Ngoai Ngu</th>
-      </tr>
-    </thead>
-  </table>
+                <div className="shadow-md rounded-lg bg-secondary-color">
+                    {/* Table Section with Horizontal Scrolling */}
+                    <div className="overflow-x-auto overflow-y-auto max-h-80">
+                        <table className="min-w-full table-fixed">
+                            <thead>
+                                <tr className="bg-gray-100 text-left sticky top-0 z-10">
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700 w-[150px]">SBD</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Toan</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngu Van</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ngoai Ngu</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Vat Li</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Hoa Hoc</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Sinh Hoc</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Lich Su</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Dia Li</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">GDCD</th>
+                                    <th className="px-6 py-3 text-sm font-semibold text-gray-700">Ma Ngoai Ngu</th>
+                                </tr>
+                            </thead>
 
-  <div className="overflow-y-auto max-h-80">
-    <table className="min-w-full table-fixed">
-      <tbody>
-        {scoreData.map((score) => (
-          <tr key={score.sbd} className="border-b">
-            <td className="px-6 py-4 text-sm text-gray-600 w-[150px]">{score.sbd}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.toan}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.nguVan}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.ngoaiNgu}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.vatLi}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.hoaHoc}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.sinhHoc}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.lichSu}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.diaLi}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.gdcd}</td>
-            <td className="px-6 py-4 text-sm text-gray-600">{score.maNgoaiNgu}</td>
-          </tr>
-        ))}
-      </tbody>
-    </table>
-  </div>
-</div>
-
+                            <tbody>
+                                {scoreData.map((score) => (
+                                    <tr key={score.sbd} className="border-b">
+                                        <td className="px-6 py-4 text-sm text-gray-600 w-[150px]">{score.sbd}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.toan}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.nguVan}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.ngoaiNgu}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.vatLi}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.hoaHoc}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.sinhHoc}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.lichSu}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.diaLi}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.gdcd}</td>
+                                        <td className="px-6 py-4 text-sm text-gray-600">{score.maNgoaiNgu}</td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
 
-            {scoreData.length > 0 ? <div className="flex justify-end mt-4">
-                <button
-                    className="bg-primary-color text-secondary-color px-6 py-2 rounded-md hover:bg-primary-color-dark transition-all w-full"
-                    onClick={() => {
-                        setQuery({
-                            ...query,
-                            page: query.page + 1,
-                        });
-                    }}
-                >
-                    Add More (10 records)
-                </button>
-            </div> :
+            {scoreData.length > 0 ? (
+                <div className="flex justify-end mt-4">
+                    <button
+                        className="bg-primary-color text-secondary-color px-6 py-2 rounded-md hover:bg-primary-color-dark transition-all w-full sm:w-auto"
+                        onClick={() => {
+                            setQuery({
+                                ...query,
+                                page: query.page + 1,
+                            });
+                        }}
+                    >
+                        Add More (10 records)
+                    </button>
+                </div>
+            ) : (
                 <div className="flex justify-center mt-4">
                     <p className="text-gray-500">No data</p>
                 </div>
-            }
+            )}
 
             {/* Chart Section */}
             <div className="flex-1">
-                <h2 className="text-lg font-semibold mb-4">Chart</h2>
-                <div className="">
-                    {/* Chart Component Here */}
+                <div>
+                    <h2 className="text-center text-2xl font-semibold">Student Score By Subject</h2>
+                    <StatisticChart subject={query.subject} />
                 </div>
             </div>
         </div>
