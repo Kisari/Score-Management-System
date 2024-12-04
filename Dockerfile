@@ -8,8 +8,6 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-RUN ls -alh /usr/src/app/.dist
-
 # Production Stage
 FROM node:16-alpine as production
 ARG NODE_ENV=production
@@ -21,7 +19,7 @@ COPY package*.json ./
 RUN npm ci --only=production
 
 # Copy built files from the development stage (updated to use 'dist' directory)
-COPY --from=development /usr/src/app/dist ./dist
+# COPY --from=development /usr/src/app/dist ./dist
 
 # Command to run the application
 CMD ["node", "build/index.js"]
