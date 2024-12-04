@@ -7,7 +7,7 @@
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./build"
   },
   "include": ["src/**/*"],   // Only include backend files
   "exclude": ["node_modules", "frontend/**/*"] // Exclude frontend entirely

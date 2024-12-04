@@ -18,8 +18,8 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 RUN npm ci --only=production
 
-# Copy built files from the development stage (updated to use 'dist' directory)
-COPY --from=development /usr/src/app/dist ./dist
+# Copy built files from the development stage (updated to use 'build' directory)
+COPY --from=development /usr/src/app/build ./build
 
 # Command to run the application
 CMD ["node", "build/index.js"]
