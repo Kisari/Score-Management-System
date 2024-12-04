@@ -1,7 +1,11 @@
 [build]
   base = "./frontend"
   publish = "./frontend/out"
-  command = "cd frontend && npm install --legacy-peer-deps && npm run build"
+  command = "npm run build"
+  environment = { "NETLIFY_BUILD_CONTEXT" = "deploy" }
+
+[build.environment]
+  NODE_ENV = "development"
 
 [context.production.environment]
   NODE_ENV = "production"
