@@ -14,7 +14,7 @@ const StudentDetailCard = (scoreData: ScoreTableData) => {
   return (
     <div className="max-w-4xl mx-auto bg-secondary-color shadow-lg rounded-lg p-6">
       <div className="flex items-center space-x-4 mb-6 bg-primary-color rounded-md text-secondary-color p-3">
-      <Image 
+        <Image
           src="/logo.jpg"
           alt="G-Score Logo"
           width={50}
@@ -55,11 +55,10 @@ const StudentDetailCard = (scoreData: ScoreTableData) => {
           <button
             key={tab}
             onClick={() => setSelectedTab(tab)}
-            className={`px-4 py-2 font-medium ${
-              selectedTab === tab
+            className={`px-4 py-2 font-medium ${selectedTab === tab
                 ? "border-b-2 border-blue-500 text-blue-500"
                 : "text-gray-500"
-            }`}
+              }`}
           >
             {tab}
           </button>
@@ -68,30 +67,30 @@ const StudentDetailCard = (scoreData: ScoreTableData) => {
 
 
       <div className="overflow-x-auto shadow-md rounded-lg bg-secondary-color">
-      <table className="min-w-full table-auto">
-    <thead>
-        <tr className="bg-gray-100 text-left">
-            {Object.entries(scoreData.scoreData.data.scoreData)
+        <table className="min-w-full table-auto">
+          <thead>
+            <tr className="bg-gray-100 text-left">
+              {Object.entries(scoreData.scoreData.data.scoreData)
                 .map(([subject]) => (
-                    <th key={subject} className="px-6 py-3 text-sm font-semibold text-gray-700">
-                        {subject.replace(/([A-Z])/g, ' $1')}
-                    </th>
+                  <th key={subject} className="px-6 py-3 text-sm font-semibold text-gray-700">
+                    {subject.replace(/([A-Z])/g, ' $1')}
+                  </th>
                 ))}
-        </tr>
-    </thead>
-    <tbody>
-        <tr className="border-b">
-            {Object.entries(scoreData.scoreData.data.scoreData)
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="border-b">
+              {Object.entries(scoreData.scoreData.data.scoreData)
                 .map(([subject, score]) => (
-                    <td key={subject} className="px-6 py-4 text-sm text-gray-600">
-                        {score !== null ? score : 'N/A'}
-                    </td>
+                  <td key={subject} className="px-6 py-4 text-sm text-gray-600">
+                    {score !== null ? score : 'N/A'}
+                  </td>
                 ))}
-        </tr>
-    </tbody>
-</table>
+            </tr>
+          </tbody>
+        </table>
 
-</div>
+      </div>
 
 
 

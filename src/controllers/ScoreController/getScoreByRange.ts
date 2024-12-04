@@ -17,7 +17,7 @@ export const getScoreByRange = asyncHandler(async (req: Request, res: Response) 
   const {subject, from, to, page, pageSize} = req.body;
 
   // Validate input
-  if (!from || !to) {
+  if (from < 0 || to < 0) {
     throw createError('Invalid request: `from` and `to` are required', 400);
   }
   if (isNaN(page) || page < 1 || isNaN(pageSize) || pageSize < 1) {
@@ -43,8 +43,6 @@ export const getScoreByRange = asyncHandler(async (req: Request, res: Response) 
   // Calculate pagination details
   const totalItems = scoreData.count;
   const totalPages = Math.ceil(totalItems / parseInt(pageSize));
-
-
   
   const response: ResponseData<GetScoreByRangeOutputDTO> = {
     status: res.statusCode,

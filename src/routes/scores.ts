@@ -3,7 +3,7 @@ import {ScoreController} from '../controllers/ScoreController'
 
 const ScoreRoute = Router();
  
-ScoreRoute.get('/subject/range', ScoreController.getScoreByRange);
+ScoreRoute.post('/subject/range', ScoreController.getScoreByRange);
 ScoreRoute.get('/subject/range/statistics', ScoreController.getScoreByRangeStatistics);
 ScoreRoute.get('/group/score/top', ScoreController.getTopScoreByGroup);
 ScoreRoute.get('/:sbd', ScoreController.getScoreBySbd);
