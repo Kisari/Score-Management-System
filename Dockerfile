@@ -8,9 +8,6 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-# Check if the build directory exists after the build
-RUN ls -alh /usr/src/app
-
 # Production Stage
 FROM node:16-alpine as production
 ARG NODE_ENV=production
