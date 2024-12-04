@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   swcMinify: true,
   
   webpack(config) {
-    // Resolve paths for custom aliases
+    // Resolving paths for custom aliases
     config.resolve.alias = {
       ...config.resolve.alias,
       "@": path.resolve(__dirname, "app"),
