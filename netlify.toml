@@ -1,6 +1,6 @@
 [build]
   base = "frontend"  # Ensure this points to frontend folder
-  publish = "frontend/out"  # Make sure this is the output folder of build
+  publish = "/out"  # Make sure this is the output folder of build
   command = "npm run build"  # The build command
   environment = { "NETLIFY_BUILD_CONTEXT" = "deploy" }
 
