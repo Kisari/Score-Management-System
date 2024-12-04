@@ -23,11 +23,13 @@ npm i
 (windows)
 copy .env.sample .env
 ```
-Then modify the content of **.env** to fit with your **SQL database configuration**
+Then modify the content of **.env** to fit with your **SQL database configuration** (DB_USER, DB_PASSWORD, DB_PORT)
 
 Open the **src** folder and go to **config** -> **config.json**
 
-Adjusting the content of **development** to fit with your **SQL database configuration**
+Adjusting the content of **development** to fit with your **SQL database configuration** (username, password). Feel free to change the database name if you want
+
+**Note**: The databse in **.env** and **development** must has the same name
 
 ![image](https://github.com/user-attachments/assets/5f30f060-4cb7-4610-81ea-0dc98ae47e06)
 
@@ -36,15 +38,15 @@ npm run db:setup
 ```
 This command will export the **databse structure** and **mock data** for you
 
-Make sure you install the Docker Desktop before running below command
+Make sure you install the **Docker Desktop** before running below command
 
 **START THE LOCAL SERVER**
 ```bash
-docker compose -f .\docker-compose.yml up --build
+docker compose -f .\docker-compose.dev.yml up --build
 ```
 **STOP THE LOCAL SERVER**
 ```bash
-docker compose -f .\docker-compose.yml down
+docker compose -f .\docker-compose.dev.yml down
 ```
 ## Frontend setup
 
