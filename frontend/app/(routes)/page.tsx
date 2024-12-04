@@ -4,7 +4,7 @@ import Header from "../../components/Header/Header";
 import Sidebar from "../../components/SideBar/SideBar";
 import StatsCard from "../../components/StatsCard/StatsCard";
 
-export default function Dashboard() {
+export default function Home() {
   return (
     <div className="flex flex-col lg:flex-row">
       <Sidebar onTag={1} />
