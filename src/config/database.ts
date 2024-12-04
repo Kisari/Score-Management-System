@@ -14,14 +14,7 @@ export const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   dialect: dbDriver,
   port: Number(dbPort),
   logging: false,
-  dialectOptions: {
-    connectTimeout: 60000,
-  },
 })
-
-//The condition alter: isDev ensures that this automatic alteration only occurs in the development environment.
-//The isDev variable is set based on the NODE_ENV environment variable:
-// const isDev = process.env.NODE_ENV === 'development'
 
 export const dbInit = async () => {
   try {

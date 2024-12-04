@@ -6,14 +6,9 @@
     "esModuleInterop": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-    "rootDir": ".",  // Change rootDir to the root of the project
-    "baseUrl": ".",   // This helps TypeScript resolve paths correctly
-    "paths": {
-      "@frontend/*": ["frontend/*"]  // Optional: Add alias if necessary
-    }
+    "rootDir": "./src",
+    "outDir": "./dist"
   },
-  "include": [
-    "src/**/*",        // Include all files in 'src'
-    "frontend/**/*"    // Include files in 'frontend'
-  ]
+  "include": ["src/**/*"],   // Only include backend files
+  "exclude": ["node_modules", "frontend/**/*"] // Exclude frontend entirely
 }
