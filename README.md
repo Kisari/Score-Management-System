@@ -9,7 +9,7 @@ This is the instructions on how to set up the project locally
 ## Clone the project from source
 
 ```bash
-git clone
+git clone https://github.com/Kisari/Score-Management-System.git
 ```
 Open the project in the root folder. Here is the backend folder
 
