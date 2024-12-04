@@ -5,7 +5,7 @@ require('dotenv').config()
 const dbName = process.env.DB_NAME as string
 const dbUser = process.env.DB_USER as string
 const dbHost = process.env.DB_HOST
-const dbDriver = process.env.DB_DRIVER as Dialect
+const dbDriver = process.env.DB_DRIVER as Dialect || 'mysql'
 const dbPassword = process.env.DB_PASSWORD || ''
 const dbPort = process.env.DB_PORT
 
@@ -13,7 +13,10 @@ export const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   host: dbHost,
   dialect: dbDriver,
   port: Number(dbPort),
-  logging: false
+  logging: false,
+  dialectOptions: {
+    connectTimeout: 60000,
+  },
 })
 
 //The condition alter: isDev ensures that this automatic alteration only occurs in the development environment.

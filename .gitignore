@@ -130,7 +130,6 @@ dist
 .pnp.*
 
 .dockerignore
-Dockerfile
 .git
 dist/
 
