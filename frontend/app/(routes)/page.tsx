@@ -1,8 +1,8 @@
-import Chart from "@/components/Chart/Chart";
-import EventCalendar from "@/components/EventCalendar/EventCalendar";
-import Header from "@/components/Header/Header";
-import Sidebar from "@/components/SideBar/SideBar";
-import StatsCard from "@/components/StatsCard/StatsCard";
+import Chart from "../../components/Chart/Chart";
+import EventCalendar from "../../components/EventCalendar/EventCalendar";
+import Header from "../../components/Header/Header";
+import Sidebar from "../../components/SideBar/SideBar";
+import StatsCard from "../../components/StatsCard/StatsCard";
 
 export default function Dashboard() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { GetScoreByRangeInputDTO } from "@/app/dto/score/getScoreByRange";
-import { ScoreData } from "@/app/dto/score/getScoreByRange";
+import { GetScoreByRangeInputDTO } from "../../app/dto/score/getScoreByRange";
+import { ScoreData } from "../../app/dto/score/getScoreByRange";
 import StatisticChart from "../Chart/StatisticChart";
 import "./ScoreStatistic.css";
 

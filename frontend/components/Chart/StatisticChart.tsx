@@ -3,8 +3,8 @@
 import { Bar } from "react-chartjs-2";
 import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 import { useEffect, useState } from "react";
-import { getScoreByRangeStatistics } from "@/app/api/score";
-import { GetScoreByRangeStatisticsOutputDTO } from "@/app/dto/score/getScoreByRangeStatistics";
+import { getScoreByRangeStatistics } from "../../app/api/score";
+import { GetScoreByRangeStatisticsOutputDTO } from "../../app/dto/score/getScoreByRangeStatistics";
 
 // Register plugins for generating the chart
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);

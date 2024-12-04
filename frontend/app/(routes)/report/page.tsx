@@ -1,14 +1,14 @@
 "use client";
 
-import Header from "@/components/Header/Header";
-import ScoreStatistic from "@/components/ScoreStatistic/ScoreStatistic";
-import Sidebar from "@/components/SideBar/SideBar";
+import Header from "../../../components/Header/Header";
+import ScoreStatistic from "../../../components/ScoreStatistic/ScoreStatistic";
+import Sidebar from "../../../components/SideBar/SideBar";
 import { useEffect, useState } from "react";
-import { GetScoreByRangeInputDTO } from "@/app/dto/score/getScoreByRange";
-import { GroupAScoreDTO } from "@/app/dto/score/getTopScoreByGroup";
-import { getScoreByRange, getTopScoreByGroup } from "@/app/api/score";
-import { errorMessageHandler } from "@/app/utils/errorHandler";
-import { ScoreData } from "@/app/dto/score/getScoreByRange";
+import { GetScoreByRangeInputDTO } from "../../../app/dto/score/getScoreByRange";
+import { GroupAScoreDTO } from "../../../app/dto/score/getTopScoreByGroup";
+import { getScoreByRange, getTopScoreByGroup } from "../../../app/api/score";
+import { errorMessageHandler } from "../../../app/utils/errorHandler";
+import { ScoreData } from "../../../app/dto/score/getScoreByRange";
 
 export default function Report() {
 

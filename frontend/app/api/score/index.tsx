@@ -1,7 +1,7 @@
-import { GetScoreBySbdOutputDTO } from "@/app/dto/score/getScoreBySbd";
-import { GetScoreByRangeInputDTO, GetScoreByRangeOutputDTO } from "@/app/dto/score/getScoreByRange";
-import { GetScoreByRangeStatisticsInputDTO, GetScoreByRangeStatisticsOutputDTO } from "@/app/dto/score/getScoreByRangeStatistics";
-import { GetTopScoreByGroupInputDTO, GetTopScoreByGroupOutputDTO } from "@/app/dto/score/getTopScoreByGroup";
+import { GetScoreBySbdOutputDTO } from "../../../app/dto/score/getScoreBySbd";
+import { GetScoreByRangeInputDTO, GetScoreByRangeOutputDTO } from "../../../app/dto/score/getScoreByRange";
+import { GetScoreByRangeStatisticsInputDTO, GetScoreByRangeStatisticsOutputDTO } from "../../../app/dto/score/getScoreByRangeStatistics";
+import { GetTopScoreByGroupInputDTO, GetTopScoreByGroupOutputDTO } from "../../../app/dto/score/getTopScoreByGroup";
 import axios from "axios";
 
 export const getScoreBySbd = async (sbd: string): Promise<GetScoreBySbdOutputDTO> => {

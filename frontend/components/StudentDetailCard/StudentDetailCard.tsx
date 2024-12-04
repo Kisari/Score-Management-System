@@ -1,6 +1,6 @@
 "use client";
 
-import { GetScoreBySbdOutputDTO } from "@/app/dto/score/getScoreBySbd";
+import { GetScoreBySbdOutputDTO } from "../../app/dto/score/getScoreBySbd";
 import Image from "next/image";
 import { useState } from "react";
 

@@ -1,12 +1,12 @@
 "use client";
 
-import Header from "@/components/Header/Header";
-import Sidebar from "@/components/SideBar/SideBar";
-import StudentDetailCard from "@/components/StudentDetailCard/StudentDetailCard";
+import Header from "../../../components/Header/Header";
+import Sidebar from "../../../components/SideBar/SideBar";
+import StudentDetailCard from "../../../components/StudentDetailCard/StudentDetailCard";
 import { useState } from "react";
-import { getScoreBySbd } from "@/app/api/score";
-import { GetScoreBySbdOutputDTO } from "@/app/dto/score/getScoreBySbd";
-import { errorMessageHandler } from "@/app/utils/errorHandler";
+import { getScoreBySbd } from "../../../app/api/score";
+import { GetScoreBySbdOutputDTO } from "../../../app/dto/score/getScoreBySbd";
+import { errorMessageHandler } from "../../../app/utils/errorHandler";
 
 export default function Search() {
     const [searchSbd, setSearchSbd] = useState<string>("");
