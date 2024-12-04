@@ -1,12 +1,12 @@
 {
   "development": {
-    "username": "root",
-    "password": "seikakukisari",
+    "username": "minhtruong",
+    "password": "admin123",
     "database": "students_score",
-    "host": "localhost",
+    "host": "34.92.183.121",
     "dialect": "mysql",
-    "timeout": 60000,
-    "acquireTimeout": 100000
+    "timeout": 300000,
+    "acquireTimeout": 300000
   },
   "test": {
     "username": "root",

@@ -14,6 +14,15 @@ export const sequelizeConnection = new Sequelize(dbName, dbUser, dbPassword, {
   dialect: dbDriver,
   port: Number(dbPort),
   logging: false,
+  dialectOptions: {
+    connectTimeout: 100000,
+  },
+  pool: {
+    max: 10,
+    min: 0,
+    acquire: 60000,
+    idle: 10000,
+  },
 })
 
 export const dbInit = async () => {
