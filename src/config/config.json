@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "minhtruong",
-    "password": "admin123",
-    "database": "students_score",
-    "host": "34.92.183.121",
+    "username": "user_name",
+    "password": "user_password",
+    "database": "db_name",
+    "host": "localhost",
     "dialect": "mysql",
     "timeout": 300000,
     "acquireTimeout": 300000
