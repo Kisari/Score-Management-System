@@ -1,12 +1,18 @@
-services: 
+services:
   api:
     build:
       context: .
       target: production
-      volumes:
-        - ./:/usr/src/app
-        - /usr/src/app/node_modules
-      ports:
-        - 4000:4000
-      env_file:
+    volumes:
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
+    ports:
+      - "4000:4000"
+    env_file:
       - .env
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: ${DB_HOST}  # Uses the DB_HOST from the .env file (Public IP or Cloud SQL connection name)
+      DB_PORT: ${DB_PORT}
