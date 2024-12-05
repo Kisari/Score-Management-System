@@ -60,7 +60,9 @@ export default function Report() {
 
   return (
     <div className="flex flex-col lg:flex-row">
-      <Sidebar onTag={3} />
+      <div className="lg:fixed lg:top-0 lg:left-0 lg:h-full lg:w-64 lg:bg-primary-color lg:shadow-lg lg:z-40">
+        <Sidebar onTag={3} />
+      </div>
 
       <div className="flex-1">
         <Header />
