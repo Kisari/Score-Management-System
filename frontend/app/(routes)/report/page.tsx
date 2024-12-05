@@ -64,7 +64,7 @@ export default function Report() {
         <Sidebar onTag={3} />
       </div>
 
-      <div className="flex-1">
+      <div className="flex-1 lg:ml-64">
         <Header />
 
         <section className="space-y-6 p-4">
